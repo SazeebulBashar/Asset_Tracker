@@ -16,7 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tracker.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('user/', UserAPIView.as_view(), name='user'),
+    # Company URLs
+    path('companies/', CompanyListCreateView.as_view(), name='company-list-create'),
+    path('companies/<int:pk>/', CompanyRetrieveUpdateDestroyView.as_view(), name='company-retrieve-update-destroy'),
 ]
