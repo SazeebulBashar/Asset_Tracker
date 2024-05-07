@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tracker.views import *
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,5 +39,9 @@ urlpatterns = [
     path('employees/', EmployeeListCreateView.as_view(), name='employee-list-create'),
     path('employees/<int:pk>/', EmployeeRetrieveUpdateDestroyView.as_view(), name='employee-retrieve-update-destroy'),
     path('employees/<int:pk>/assignments/', EmployeeAssignmentsListView.as_view(), name='employee-assignments-list'),
+
+    # JWT URLs
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
 ]
