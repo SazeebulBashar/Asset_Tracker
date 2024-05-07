@@ -25,4 +25,15 @@ urlpatterns = [
     # Company URLs
     path('companies/', CompanyListCreateView.as_view(), name='company-list-create'),
     path('companies/<int:pk>/', CompanyRetrieveUpdateDestroyView.as_view(), name='company-retrieve-update-destroy'),
+
+    # Device URLs
+    path('devices/', DeviceListCreateView.as_view(), name='device-list-create'),
+    path('devices/<int:pk>/', DeviceRetrieveUpdateDestroyView.as_view(), name='device-retrieve-update-destroy'),
+    path('devices/<int:pk>/assign/', DeviceAssignView.as_view(), name='device-assign'),
+
+    # Employee URLs
+    path('employees/', EmployeeListCreateView.as_view(), name='employee-list-create'),
+    path('employees/<int:pk>/', EmployeeRetrieveUpdateDestroyView.as_view(), name='employee-retrieve-update-destroy'),
+    path('employees/<int:pk>/assignments/', EmployeeAssignmentsListView.as_view(), name='employee-assignments-list'),
+
 ]
