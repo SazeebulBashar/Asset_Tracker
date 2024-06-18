@@ -1,1 +1,1 @@
-"# Asset_Tracker Django App for REPLIQ Exam" 
+"# Asset_Tracker Django App" 
